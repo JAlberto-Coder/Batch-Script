@@ -1,15 +1,15 @@
 @echo on
 
-REM **************************************************
-REM Version: 1.0.0
-REM **************************************************
-REM Autor: JAlberto-Coder
-REM Fecha: 03-01-2021
-REM Descripcion: BAT que copia archivos de un lugar a otro
-REM 			 Validar antes que existan los directorios
-REM **************************************************
+rem **************************************************
+rem Version: 1.0.0
+rem **************************************************
+rem Autor: JAlberto-Coder
+rem Fecha: 03-01-2021
+rem Descripcion: BAT que copia archivos de un lugar a otro
+rem 		Validar antes que existan los directorios
+rem **************************************************
 
-REM INICIO: VARIABLES
+rem INICIO: VARIABLES
 set RUTA_SOURCE=C:\SQL\Backup\
 set RUTA_TARGET=G:\Mi unidad\eCore Respaldos\
 set ARCHIVO_CONTROL=Historia.log
@@ -20,24 +20,24 @@ set HORA=%time:~0,2%
 set HORA=%HORA: =0%
 set MINUTO=%time:~3,2%
 set SEGUNDO=%time:~6,2% 
-REM FIN: VARIABLES
+rem FIN: VARIABLES
 
-REM INICIO: ARCHIVO LOG
+rem INICIO: ARCHIVO LOG
 if not exist "%RUTA_TARGET%%ARCHIVO_CONTROL%" (
 	echo INICIO %ANIO%%MES%%DIA%_%HORA%%MINUTO%	> "%RUTA_TARGET%%ARCHIVO_CONTROL%"
 ) else (
 	echo INICIO %ANIO%%MES%%DIA%_%HORA%%MINUTO% >> "%RUTA_TARGET%%ARCHIVO_CONTROL%"
 )
-REM FIN: ARCHIVO LOG
+rem FIN: ARCHIVO LOG
 
 echo " " >> "%RUTA_TARGET%%ARCHIVO_CONTROL%"
 
-REM INICIO: COMANDO MOVE
+rem INICIO: COMANDO MOVE
 for /R "%RUTA_SOURCE%" %%v in (*.bak) do (
 	echo ARCHIVO A MOVER: %%v >> "%RUTA_TARGET%%ARCHIVO_CONTROL%"
 	move %%v "%RUTA_TARGET%" >> "%RUTA_TARGET%%ARCHIVO_CONTROL%"
 )
-REM FIN: COMANDO MOVE
+rem FIN: COMANDO MOVE
 
 echo " " >> "%RUTA_TARGET%%ARCHIVO_CONTROL%"
 echo FIN >> "%RUTA_TARGET%%ARCHIVO_CONTROL%"
