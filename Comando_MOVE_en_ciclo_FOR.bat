@@ -11,7 +11,7 @@ rem **************************************************
 
 rem INICIO: VARIABLES
 set RUTA_SOURCE=C:\SQL\Backup\
-set RUTA_TARGET=G:\Mi unidad\eCore Respaldos\
+set RUTA_TARGET=B:\Respaldos\
 set ARCHIVO_CONTROL=Historia.log
 set ANIO=%date:~6,4%
 set MES=%date:~3,2%
